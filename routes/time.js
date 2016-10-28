@@ -5,6 +5,7 @@ var distance = require('google-distance');
 var connectionString = 'postgres://localhost:5432/times';
 var path = require('path');
 var pg = require('pg');
+var bodyParser = require('body-parser');
 
 console.log( 'inside routes/time.js');
 
@@ -22,7 +23,7 @@ distance.apiKey = "AIzaSyAvbUTpswKFmmzVTkbqbXS1H-gjvtviG_U";
   {
     origin: '2304 Harriet Ave, Minneapolis MN',
     destination: 'Prime Digital Academy, Bloomington, MN',
-    mode: 'transit'
+    mode: 'driving'
   },
 
 
@@ -33,8 +34,8 @@ function(err, data) {
     var timer = setTimeout(function(  ) {
       console.log( 'inside timer, data: ' + data.duration );
         i++;
-        timer = setTimeout(arguments.callee, 15000);
-      }, 15000);
+        timer = setTimeout(arguments.callee, 40000);
+      }, 40000);
       timeLogged = {
         origin: data.origin,
         destination: data.destination,
@@ -47,7 +48,7 @@ function(err, data) {
 
 );//end of distance.get
 //
-app.get('/addTime', function( req, res, next ){
+app.get('/', function( req, res, next ){
 //   console.log( 'inside router.post for reviews', req.body );
     var timeSaved = {
       origin: req.body.origin,
@@ -67,18 +68,11 @@ app.get('/addTime', function( req, res, next ){
             } else {
               console.log( 'req.body.id: ', req.body.id);
             }
-            // console.log( 'result: ', result );
-            //   reviewSaved.id = result.rows[0].id;
-            //   reviewSaved.reviewerID = req.user.id;
               res.send( newTime );
                done();
-            // client.end();
-
-              // res.redirect('/');
-             //end of else
           });//end of client.query
         });//end of pg.connect
-      });//end of router.add post
+      });//end of app.add post
 
 
 
