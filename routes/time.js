@@ -22,7 +22,7 @@ distance.apiKey = "AIzaSyAvbUTpswKFmmzVTkbqbXS1H-gjvtviG_U";
   {
     origin: '2304 Harriet Ave, Minneapolis MN',
     destination: 'Prime Digital Academy, Bloomington, MN',
-    mode: 'driving'
+    mode: 'transit'
   },
 
 
@@ -33,8 +33,8 @@ function(err, data) {
     var timer = setTimeout(function(  ) {
       console.log( 'inside timer, data: ' + data.duration );
         i++;
-        timer = setTimeout(arguments.callee, 5000);
-      }, 5000);
+        timer = setTimeout(arguments.callee, 15000);
+      }, 15000);
       timeLogged = {
         origin: data.origin,
         destination: data.destination,
