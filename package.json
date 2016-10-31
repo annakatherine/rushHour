@@ -13,7 +13,12 @@
     "@google/maps": "^0.3.0",
     "body-parser": "^1.15.2",
     "express": "^4.14.0",
+    "express-prettylogger": "^0.1.2",
+    "express-session": "^1.14.1",
     "google-distance": "^1.0.1",
+    "intl": "^1.2.5",
+    "intl-locales-supported": "^1.0.0",
+    "moment": "^2.15.2",
     "nodemon": "^1.11.0",
     "path": "^0.12.7",
     "pg": "^6.1.0"

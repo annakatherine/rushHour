@@ -1,13 +1,23 @@
 var express = require('express');
 var app = express();
 var server = require('http').Server(app);
-var port = process.env.PORT || 6666;
-var pg = require('pg');
+var session = require('express-session');
 var bodyParser = require('body-parser');
+var port = process.env.PORT || 7777;
+var router = express.Router();
+var pg = require('pg');
 var path = require('path');
 var connectionString = 'postgres://localhost:5432/time';
-var router = express.Router();
 var distance = require('google-distance');
+// var expressPrettylogger = require('express-prettylogger');
+// app.use(express.logger('pretty'));
+
+
+app.get('/', function (req, res) {
+
+  res.send('Hello World!');
+  res.end();
+});
 
 // Body parser middleware
 app.use(bodyParser.json());
