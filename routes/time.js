@@ -27,8 +27,10 @@ var options = {
 
 };
 request(options)
-.then(function( response ) {
-console.log( 'hello?, res: ' + response.rows );
+.then(function( banana ) {
+
+console.log( 'res: ' + banana );
+console.log( 'response: ' + banana.rows);
 
 })
 .catch(function(err){
